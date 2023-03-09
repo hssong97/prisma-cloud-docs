@@ -106,6 +106,10 @@ topics:
       file: register-an-app-on-azure-gov.adoc
     - name: Microsoft Azure APIs Ingested by Prisma Cloud
       file: microsoft-azure-apis-ingested-by-prisma-cloud.adoc
+    - name: Connect you Azure Account
+      file: connect-azure-account.adoc
+    - name: Connect an Azure Tenant
+      file: connect-azure-tenant.adoc
   - name: Onboard Your Google Cloud Platform (GCP) Account
     dir: onboard-your-gcp-account
     topics:
