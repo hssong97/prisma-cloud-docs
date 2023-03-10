@@ -11,7 +11,7 @@ In this topic you will learn how to add your Azure cloud resources to Prisma™ 
 |*Resources*
 
 |First-time onboarding
-|Choose an onboarding option <<choose-onboard-option>>
+|Choose an <<choose-onboard-option, onboarding option>>
 
 |Onboarding Complete
 |* xref:update-azure-application-permissions.adoc#idd4a9fb0b-59df-473b-8547-789be4c18ec5[Update Azure Application Permissions]
@@ -45,24 +45,24 @@ Use one of the following three options to onboard your Azure cloud resources on 
 
 Using Azure's APIs, Prisma Cloud ingests and processes data from your cloud environment and initiates resource monitoring. During the built-in onboarding process you have the option of using one of the following three methods to create the required Azure resources to authorize Prisma Cloud to access Azure APIs:
 
-. Using Terraform Script (Recommended)
+* Terraform Script (Recommended)
 This workflow automates the process of setting up the Prisma Cloud application on Azure Active Directory and enables read-only or read-write access to your Azure subscription.
 
 [NOTE]
 ====
-Azure China workflows do not support the use of Terraform templates.
+Azure China workflows do not support the use of Terraform templates. Use the Custom Role JSON method to onboard Azure China.
 ====
-. Using Custom Role JSON file
+* Custom Role JSON file
 Using a manually created Custom Role you also have the option to enforce least access privilege to restrict access. To achieve this you will need to manually set up the Prisma Cloud application on Active Directory and Create a Custom Role to authorize access to Azure APIs. 
-. Manual
-If your organization restricts the use of Terraform scripts, you can choose to manually create the required Azure resources for Prisma Cloud to call the Azure APIs.
+* Manual
+If your organization restricts the use of Terraform scripts, you can choose to manually create the required resources for Prisma Cloud to call the Azure APIs.
 
 
 === Prerequisites
 
 To successfully onboard and monitor the resources within your Azure subscription, ensure that you have completed the following prerequisites:
 
-. Get your Azure Subscription ID from the Azure portal. 
+. Get your Azure Subscription ID from the Azure portal. (S to provide updated steps)
 
 . Elevate access for a Global Administrator using Azure portal to enable Prisma Cloud access to Azure subscriptions or management groups. This is needed for ingesting resources associated with subscriptions and management groups only during the initial onboarding of your Azure accounts. You can disable this option after onboarding is complete.
 
@@ -78,14 +78,14 @@ Select menu:All{sp}services[Key vaults > (key vault name) > Access policies > + 
 +
 image::add-access-policy-azure.png[scale=10]
 
-. Enable Prisma Cloud to obtain network traffic data from Network Security Group (NSG) https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal[flow logs]. NSG flow logs are a feature of Network Watcher, that allows you to view information about ingress and egress IP traffic through an NSG.
+. Enable Prisma Cloud to obtain network traffic data from Network Security Group (NSG) https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal[flow logs]. NSG flow logs a feature of Network Watcher, allows you to view ingress and egress IP traffic information through a NSG.
 +
 ** Create one or more network security groups if you have none.
 
 ** Create Azure https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-create[Network Watcher instances] for the virtual networks in every region where you collect NSG flow logs.
 Network Watcher enables you to monitor, diagnose, and view metrics to enable and disable logs for resources in an Azure virtual network.
 
-** Create storage accounts to collect NSG flow logs. If you are storing flow logs in a storage account that belongs to a different subscription than the one that is generating the flow logs and is being onboarded, Prisma Cloud can ingest flow logs only when:
+** Create storage accounts to collect NSG flow logs. Prisma Cloud can ingest flow logs only when:
 +
 *** The subscriptions belong to the same Azure AD or Root Management Group (for example, Azure Org).
 
@@ -109,15 +109,16 @@ Replace userinput:[your storage account] with the name of your storage account i
 *Bring in roles info from docs. Sumanth to provide Gsheet of required permissions and mapping to roles and deployment types*
 
 === Next: Onboard your Azure Account 
-* Azure Tenant (Accounts with Management Groups, Subscriptions and Active Directory) (connects all your Azure resources to Prisma Cloud) 
+
+* Azure Tenant (Connects all your Azure resources to Prisma Cloud including Accounts with Management Groups, Subscriptions and Active Directory) () 
 ** Commercial 
 ** Government
 ** China
-* Azure Subscription (connects a single subscription)
+* Azure Subscription (Connects a single subscription)
 ** Commercial 
 ** Government 
 ** China
-* Azure Active Directory (connects an Active Directory)
+* Azure Active Directory (Connects an Active Directory)
 ** Commercial 
 ** Government
 ** China

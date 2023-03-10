@@ -1,6 +1,6 @@
-=== Connect your Azure Tenant Account
+== Connect your Azure Tenant Account
 
-Learn how to connect your Azure Commercial, Government, or Azure China subscription on Prisma Cloud. Onboarding an *Azure Tenant* connects all your Azure resources to Prisma Cloud including Accounts with Management Groups, Subscriptions and Active Directory.
+Learn how to <<commercial>>, Government, or Azure China subscription on Prisma Cloud. Onboarding an *Azure Tenant* connects all your Azure resources to Prisma Cloud including Accounts with Management Groups, Subscriptions and Active Directory.
 
 Connecting Prisma™ Cloud to your Azure cloud account enables you to analyze and monitor traffic logs, and detect potential malicious network activity or compliance issues. During the built-in onboarding process you have the option of using one of the following three methods to create the required Azure resources to authorize Prisma Cloud to access Azure APIs:
 
@@ -16,31 +16,30 @@ Using a manually created Custom Role you also have the option to enforce least a
 . Manual
 If your organization restricts the use of Terraform scripts, you can choose to manually create the required Azure resources for Prisma Cloud to call the Azure APIs.
 
-. Add Azure Commercial Tenant <<commercial>>
-. Add Azure Government Tenant
-. Add Azure China Tenant
 
 [#commercial]
 === Add Azure Commercial Tenant
 
+
 ==== Get Started
+
 . https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin/get-started-with-prisma-cloud/access-prisma-cloud.html#id3d308e0b-921e-4cac-b8fd-f5a48521aa03[Access Prisma Cloud] and select menu:Settings[Cloud Accounts > Add Cloud Account].
 
 . Choose *Azure* as the *Cloud to Secure*.
 . Select *Tenant* under *Scope*.
 . Select *Commercial* as the *Deployment Type*.
-. Optionally use the checkboxes to add the following functionality:
-* *Agentless Workload Scanning* scans hosts and containers for vulnerabilities and compliance risks without having to install a Defender. You can also update the scanning https://docs.paloaltonetworks.com/prisma/prisma-cloud/22-12/prisma-cloud-compute-edition-admin/agentless-scanning/onboard-accounts[configuration] for Agentless scans.
+. Enable the following functionality to get the most our your Prisma Cloud experience:
+.. *Agentless Workload Scanning* scans hosts and containers for vulnerabilities and compliance risks without having to install a Defender. You can also update the scanning https://docs.paloaltonetworks.com/prisma/prisma-cloud/22-12/prisma-cloud-compute-edition-admin/agentless-scanning/onboard-accounts[configuration] for Agentless scans.
 
-* *Serverless Function Scanning* scans cloud provider functions like AWS Lambda, Azure and Google functions for https://docs.paloaltonetworks.com/prisma/prisma-cloud/22-12/prisma-cloud-compute-edition-admin/vulnerability_management/serverless_functions[vulnerabilities] and https://docs.paloaltonetworks.com/prisma/prisma-cloud/22-12/prisma-cloud-compute-edition-admin/compliance/serverless[compliance]. You can also update the scanning https://docs.paloaltonetworks.com/prisma/prisma-cloud/22-12/prisma-cloud-compute-edition-admin/agentless-scanning/onboard-accounts[configuration] for Serverless scans. 
+.. *Serverless Function Scanning* scans cloud provider functions like AWS Lambda, Azure and Google functions for https://docs.paloaltonetworks.com/prisma/prisma-cloud/22-12/prisma-cloud-compute-edition-admin/vulnerability_management/serverless_functions[vulnerabilities] and https://docs.paloaltonetworks.com/prisma/prisma-cloud/22-12/prisma-cloud-compute-edition-admin/compliance/serverless[compliance]. You can also update the scanning https://docs.paloaltonetworks.com/prisma/prisma-cloud/22-12/prisma-cloud-compute-edition-admin/agentless-scanning/onboard-accounts[configuration] for Serverless scans. 
 
-* *Agent-Based Workload Protection* allows for automated deployment of Defenders to  to secure resources such as  https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin-compute/install/install_defender/auto_defend_host[VMs], containers and Kubernetes orchestrators. Registry scanning, Kubernetes audits and other features required by defenders are also enabled.
+.. *Agent-Based Workload Protection* allows for automated deployment of Defenders to  to secure resources such as  https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin-compute/install/install_defender/auto_defend_host[VMs], containers and Kubernetes orchestrators. Registry scanning, Kubernetes audits and other features required by defenders are also enabled.
 
 . Click *Next* to proceed with the onboarding flow.
 
 ==== Configure Account
 
-. On the *Configure Account* page provide our *Account Details* including *Directory Tenant ID* and choose an *Account Name*.
+. On the *Configure Account* page provide your *Account Details* including *Directory Tenant ID* and choose an *Account Name*.
 . Click the *Remediation* checkbox if you would like to optionally remediate misconfigured resources from IaC templates. Additional permissions are required for this functionality.
 . If you're using the recommended Terraform template to provide the required account details, click *Download Terraform Script* and enter the form details from the script output. Provide details for *Application (Client) ID*, *Application Client Secret*, *Enterprise Application Object ID* from the script output.
 . Enable Network Security Group (NSG) flow log ingestion if you would like to view information about ingress and egress IP traffic through an NSG. 
@@ -50,7 +49,7 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 
 ==== Review Status
 
-. On the *Review Status* page, ensure that all the Security Capabilities you have selected display a green Enabled button. If *Checks Failed* appears next to a selected function. Click the drop-down next to the failed check and add the missing permissions listed. Review Roles and Permissions for a full list of permissions. 
+. On the *Review Status* page, ensure that all the *Security Capabilities* you have selected display a green Enabled button. If *Checks Failed* appears next to a selected function. Click the drop-down next to the failed check and add the missing permissions listed. Review Roles and Permissions for a full list of permissions. 
 . Click *Save and Close* to complete onboarding or *Save and Onboard Another Account*.
 
 

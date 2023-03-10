@@ -78,6 +78,10 @@ topics:
   - name: Onboard Your Azure Account
     dir: onboard-your-azure-account
     topics:
+    - name: Connect you Azure Account
+      file: connect-azure-account.adoc
+    - name: Connect an Azure Tenant
+      file: connect-azure-tenant.adoc
     - name: Onboard Your Azure Account
       file: onboard-your-azure-account.adoc
     - name: Azure Cloud Account Onboarding Checklist
@@ -106,10 +110,6 @@ topics:
       file: register-an-app-on-azure-gov.adoc
     - name: Microsoft Azure APIs Ingested by Prisma Cloud
       file: microsoft-azure-apis-ingested-by-prisma-cloud.adoc
-    - name: Connect you Azure Account
-      file: connect-azure-account.adoc
-    - name: Connect an Azure Tenant
-      file: connect-azure-tenant.adoc
   - name: Onboard Your Google Cloud Platform (GCP) Account
     dir: onboard-your-gcp-account
     topics:
