@@ -1,6 +1,6 @@
 == Connect your Azure Tenant Account
 
-Learn how to <<commercial>>, Government, or Azure China subscription on Prisma Cloud. Onboarding an *Azure Tenant* connects all your Azure resources to Prisma Cloud including Accounts with Management Groups, Subscriptions and Active Directory.
+Learn how to onboard <<commercial>>, Government, or Azure China Azure resources on Prisma Cloud. Onboarding an *Azure Tenant* connects all your Azure resources to Prisma Cloud including Accounts with Management Groups, Subscriptions and Active Directory.
 
 Connecting Prisma™ Cloud to your Azure cloud account enables you to analyze and monitor traffic logs, and detect potential malicious network activity or compliance issues. During the built-in onboarding process you have the option of using one of the following three methods to create the required Azure resources to authorize Prisma Cloud to access Azure APIs:
 

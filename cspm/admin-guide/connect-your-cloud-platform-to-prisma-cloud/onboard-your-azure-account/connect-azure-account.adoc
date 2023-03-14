@@ -2,7 +2,7 @@
 
 Effectively monitor your Azure cloud resources and ensure compliance by onboarding your Azure cloud account on Prisma™ Cloud. 
 
-In this topic you will learn how to add your Azure cloud resources to Prisma™ Cloud for threat detection, monitoring and compliance. Choose from one of the options outlined below, based on where you are in your journey with Prisma Cloud:
+Learn how to add your Azure cloud resources to Prisma™ Cloud for threat detection, monitoring and compliance. Choose from one of the options outlined below, based on where you are in your journey with Prisma Cloud:
 
 [cols="50%a,50%a"]
 |===
@@ -106,7 +106,7 @@ Replace userinput:[your storage account] with the name of your storage account i
 ** Verify that you can view the flow logs.
 
 === Required Roles and Permissions
-*Bring in roles info from docs. Sumanth to provide Gsheet of required permissions and mapping to roles and deployment types*
+*Bring in roles info from docs. RLP-95776 to provide Gsheet of required permissions and mapping to roles and deployment types*
 
 === Next: Onboard your Azure Account 
 
