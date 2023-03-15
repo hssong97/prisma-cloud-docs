@@ -1,0 +1,179 @@
+== Authorize Prisma Cloud to access Azure APIs
+
+Connecting Prisma™ Cloud to your Azure cloud account enables you to analyze and monitor traffic logs, and detect potential malicious network activity or compliance issues. During the built-in onboarding process you have the option of using one of the following three methods to create the required Azure resources to authorize Prisma Cloud to access Azure APIs:
+
+* *Automated Terraform Script* (Recommended) <<terraform>>
+This workflow automates the process of setting up the Prisma Cloud application on Azure Active Directory and enables read-only or read-write access to your Azure subscription.
+
+[NOTE]
+====
+Azure China workflows do not support the use of Terraform templates.
+====
+* *Custom Role JSON file* <<json>>
+Using a manually created Custom Role you also have the option to enforce least access privilege to restrict access. To achieve this you will need to manually set up the Prisma Cloud application on Active Directory and Create a Custom Role to authorize access to Azure APIs. 
+* *Manual*
+If your organization restricts the use of Terraform scripts, you can choose to manually create the required Azure resources for Prisma Cloud to call the Azure APIs.
+
+[#terraform]
+=== Automated Terraform Script Method 
+
+Follow the steps below to use the Automated Terraform script method to create the Azure resources for Prisma Cloud onboarding:
+
+==== Terraform for Tenant Flow
+
+. Create a system with terraform installed and authenticated to Azure via the CLI. 
+. Download the Terraform script using Prisma Cloud Azure Onboarding User Interface or Azure Template Generation API.
+
+[NOTE]
+====
+
+We recommend that you create a directory to store the Terraform template you download. This allows you to better manage the templates when you add new Azure resources to Prisma Cloud or update existing roles. Give this directory a unique name for example, screen:[onboard-tenant-<tenant-name>].
+====
+. Run the command screen:[terraform init > terraform apply] and click *Confirm*.
+. This generates outputs with the following values as shown below: 
+
+image::so-az-automate-tenant.png[scale=30] 
+
+Input these values in the associated UI fields as indicated:
+
+[cols="50%a,50%a"]
+|===
+
+|UI Field in Onboarding Workflow
+|Terraform Output Keys
+
+|Application (Client) ID
+|b_application_id
+
+|Application Client Secret
+|c_application_key
+
+|Enterprise Application Object ID
+|e_service_principal_object_id 
+|===
+
+. Use the Azure portal to *Grant admin consent* for API permissions. This authorizes Prisma Cloud to access Azure resources. This is required to ingest Azure resources associated with subscriptions and management groups, only during the initial onboarding of your Azure accounts. 
+.. On your Azure portal, clink on the *e_consent_link* to be redirected to the API permissions section.
+.. Click on *Grant admin consent* and select *Yes*. A success message appears indicating *Grant Consent successful*.
+.. Verify that the status column has green check marks.
+
+image::so-az-authorize-permissions.png[scale=30] 
+
+==== Terraform for Azure Subscriptions
+
+. Create a system with terraform installed and authenticated to Azure via the CLI. 
+. Download the Terraform script using Prisma Cloud Azure Onboarding User Interface or Azure Template Generation API.
+
+[NOTE]
+====
+We recommend that you create a directory to store the Terraform template you download. This allows you to better manage the templates when you add new Azure resources to Prisma Cloud or update existing roles. Give this directory a unique name that indicates its purpose, for example, screen:[onboard-subscription-<subscription-name>].
+====
+
+. Run the command screen:[terraform init > terraform apply] and click *Confirm*.
+. This generates outputs with the following values as shown below: 
+
+image::so-az-automate-subscription.png[scale=30] 
+
+Input these values in the associated UI fields as indicated:
+
+[cols="50%a,50%a"]
+|===
+
+|UI Field in Onboarding Workflow
+|Terraform Output Keys
+
+|Application (Client) ID
+|c_application_id
+
+|Application Client Secret
+|d_application_key
+
+|Enterprise Application Object ID
+|e__enterprise_application_object_id
+
+|===
+
+==== Terraform for Active Directory
+
+Follow the steps listed under the Tenant flow above. For step 2, remember to name the directory you use to store your Terraform template something intuitive such as, screen:[onboard-active-directory-<tenant-name>].
+
+[#json]
+=== Custom Roles to Authorize Prisma Cloud Access
+
+In addition to the automated Terraform authorization method, you also have the option to create a custom role so that enforce the principal of least access privileges to limit user access to the bare minimum. 
+
+To create a custom role on Azure, you must have an Azure Active Directory Premium 1 or Premium 2 license plan.
+
+. Create a custom role using Azure CLI. You can create custom roles using Azure PowerShell, Azure CLI, or the REST API. The following instructions use the Azure CLI command (run on PowerShell or on the DOS command prompt) to create the custom role.
+
+. https://docs.microsoft.com/en-us/cli/azure/install-azure-cli[Install the Azure CLI] and log in to Azure.
+
+. Download the JSON files which contains the permissions:
++
+* https://redlock-public.s3.amazonaws.com/azure/azure_prisma_cloud_lp_read_only.json[Commercial]
+* https://redlock-public.s3.amazonaws.com/azure/azure_prisma_cloud_read_only_role_gov.json[Government]
+* https://redlock-public.s3.amazonaws.com/azure/azure_prisma_cloud_read_only_role_china.json[China]
++
+[NOTE]
+====
+Microsoft recommends using a wildcard to configure NSG flow log permissions (Microsoft.Network/networkWatchers/queryFlowLogStatus/*), listed in the JSON files. Refer to https://docs.microsoft.com/en-us/azure/network-watcher/required-rbac-permissions#nsg-flow-logs[Microsoft documentation] for more details.
+====
+
+. Open a text editor (such as Notepad) and save the custom role JSON files from the above links in the JSON format and give it a descriptive name.
+
+. Depending on whether you are creating a custom role for the Tenant or Subscription workflow, complete the following steps:
+.. If you are creating a custom role for the Tenant workflow. Edit the saved custom role JSON file in a text editor and update the value for Assignable Scopes with the value below and save your changes:
+
+[userinput]
+----
+AssignableScopes": [
+  "providers/Microsoft.Management/managementGroups/<tenant-id>"
+  ]
+----
+... If you are creating a custom role for the Subscriptions workflow. Edit the saved custom role JSON file in a text editor and update the value for Assignable Scopes with the value below and save your changes:
+
+[userinput]
+----
+AssignableScopes": [
+     "/subscriptions/<subscription-id>"
+  ]
+----
+. Log in to the Azure portal from the same local system where the JSON file was saved and complete the following steps:
+.. Open a PowerShell window or a DOS Command Prompt Window.
+.. Go to the directory where you stored the JSON file.
+.. Enter the following Azure CLI command (replacing the JSON filename to match the name of your custom role JSON file). 
+
+* Commercial 
+[userinput]
+----
+az role definition create --role-definition "azure_prisma_cloud_lp_read_only.json"
+----
+* Government 
+[userinput]
+----
+az role definition create --role-definition "azure_prisma_cloud_read_only_role_gov.json"
+----
+* China 
+[userinput]
+----
+az role definition create --role-definition "azure_prisma_cloud_read_only_role_china.json"
+----
+
+The command generates the sample output below:
+
+[systemoutput]
+----
+{"assignableScopes": [    "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  ],  "description": "Allows Reading Flow Logs Settings",  "id": "/subscriptions/16dfdbcc-e407-4fbe-9096-e7a97ee23fb5/providers/Microsoft.Authorization/roleDefinitions/088c8f48-201c-4f8d-893f-7716a8d58fa1",  "name": "088c8f48-201c-4f8d-893f-7716a8d58fa1",  "permissions": [{      "actions": [        "<a list of all actions>"],      "dataActions": [],      "notActions": [],      "notDataActions": []    }],  "roleName": "Flow Log Settings Reader",  "roleType": "CustomRole",  "type": "Microsoft.Authorization/roleDefinitions"]
+----
+.. Custom role creation is now complete. Complete the following steps to assign the custom role to an app registration, add role ssignments and configure it to access the flow logs:
+... Log in to the Microsoft Azure Portal.
+... If custom role is created at
+.... Tenant scope:  Navigate to *All Services > Management Groups*. Click on *Tenant Root Group*.
+.... Subscription scope:  Navigate to *All services > Subscriptions*
+... Select *Access control (IAM) > Add role assignment*.
+... Verify that you can see the newly created custom role in the *Roles* drop-down.
+... Assign the custom role to the Prisma Cloud app registration. Enable the permission to query flow log status and save your changes.
+
+
+
+

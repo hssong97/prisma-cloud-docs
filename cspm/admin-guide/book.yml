@@ -82,6 +82,8 @@ topics:
       file: connect-azure-account.adoc
     - name: Connect an Azure Tenant
       file: connect-azure-tenant.adoc
+    - name: Authorize Prisma Cloud to access Azure APIs
+      file: authorize-prisma-cloud.adoc
     - name: Onboard Your Azure Account
       file: onboard-your-azure-account.adoc
     - name: Azure Cloud Account Onboarding Checklist
