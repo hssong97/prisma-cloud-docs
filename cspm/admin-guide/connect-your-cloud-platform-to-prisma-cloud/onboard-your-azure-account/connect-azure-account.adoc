@@ -11,12 +11,10 @@ Learn how to add your Azure cloud resources to Prisma™ Cloud for threat detect
 |*Resources*
 
 |First-time onboarding
-|Choose an <<choose-onboard-option, onboarding option>>
+|Select one of the <<choose-onboard-option>> below
 
 |Onboarding Complete
 |* xref:update-azure-application-permissions.adoc#idd4a9fb0b-59df-473b-8547-789be4c18ec5[Update Azure Application Permissions]
-
-* xref:create-custom-role-on-azure.adoc#id3817b85a-fbfc-4d4a-bde4-bdb2012b1e02[Create a Custom Role on Azure]
 
 * xref:troubleshoot-azure-account-onboarding.adoc#id6b7e6e40-9ce7-43d8-b5b5-1dcc607d8e9b[Troubleshoot Azure Account Onboarding]
 
@@ -25,13 +23,13 @@ Learn how to add your Azure cloud resources to Prisma™ Cloud for threat detect
 |===
 
 [#choose-onboard-option]
-=== Overview
+=== Onboarding Options
 
 Use one of the following three options to onboard your Azure cloud resources on Prisma Cloud:
 
-* Azure Tenant (Accounts with Management Groups, Subscriptions and Active Directory) (connects all your Azure resources to Prisma Cloud) 
-** Commercial 
-** Government
+* *Azure Tenant* (Connects all your Azure resources, accounts with Management Groups, Subscriptions and Active Directory to Prisma Cloud) 
+** xref:connect-azure-tenant.adoc#commercial[Commercial]
+** xref:connect-azure-tenant.adoc#government[Government] 
 ** China
 * Azure Subscription (connects a single Subscription)
 ** Commercial 
@@ -45,16 +43,16 @@ Use one of the following three options to onboard your Azure cloud resources on 
 
 Using Azure's APIs, Prisma Cloud ingests and processes data from your cloud environment and initiates resource monitoring. During the built-in onboarding process you have the option of using one of the following three methods to create the required Azure resources to authorize Prisma Cloud to access Azure APIs:
 
-* Terraform Script (Recommended)
+* xref:authorize-prisma-cloud.adoc#terraform[Terraform] (Recommended)
 This workflow automates the process of setting up the Prisma Cloud application on Azure Active Directory and enables read-only or read-write access to your Azure subscription.
 
 [NOTE]
 ====
-Azure China workflows do not support the use of Terraform templates. Use the Custom Role JSON method to onboard Azure China.
+Azure China workflows do not support the use of Terraform templates. Use the Manual or Custom Role JSON method to onboard Azure China.
 ====
-* Custom Role JSON file
+* xref:authorize-prisma-cloud.adoc#json[Using Custom Role JSON]
 Using a manually created Custom Role you also have the option to enforce least access privilege to restrict access. To achieve this you will need to manually set up the Prisma Cloud application on Active Directory and Create a Custom Role to authorize access to Azure APIs. 
-* Manual
+* xref:authorize-prisma-cloud.adoc#manual[Manually Authorizing Prisma Cloud]
 If your organization restricts the use of Terraform scripts, you can choose to manually create the required resources for Prisma Cloud to call the Azure APIs.
 
 
@@ -64,7 +62,7 @@ To successfully onboard and monitor the resources within your Azure subscription
 
 . Get your Azure Subscription ID from the Azure portal. (S to provide updated steps)
 
-. Elevate access for a Global Administrator using Azure portal to enable Prisma Cloud access to Azure subscriptions or management groups. This is needed for ingesting resources associated with subscriptions and management groups only during the initial onboarding of your Azure accounts. You can disable this option after onboarding is complete.
+. Elevate access for a https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin#elevate-access-for-a-global-administrator[Global Administrator] using Azure portal to enable Prisma Cloud access to Azure subscriptions or management groups. This is needed for ingesting resources associated with subscriptions and management groups only during the initial onboarding of your Azure accounts. You can disable this option after onboarding is complete.
 
 . Enable Prisma Cloud to ingest Azure Key Vault resources.
 +
