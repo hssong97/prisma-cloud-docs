@@ -25,7 +25,7 @@ Learn how to add your Azure cloud resources to Prisma™ Cloud for threat detect
 [#choose-onboard-option]
 === Onboarding Options
 
-Use one of the following three options to onboard your Azure cloud resources on Prisma Cloud:
+Use one of the following three options to onboard your Azure cloud account on Prisma Cloud:
 
 * *Azure Tenant* (Connects all your Azure resources, accounts with Management Groups, Subscriptions and Active Directory to Prisma Cloud) 
 ** xref:connect-azure-tenant.adoc#commercial[Commercial]
@@ -64,7 +64,7 @@ To successfully onboard and monitor the resources within your Azure subscription
 
 . Elevate access for a https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin#elevate-access-for-a-global-administrator[Global Administrator] using Azure portal to enable Prisma Cloud access to Azure subscriptions or management groups. This is needed for ingesting resources associated with subscriptions and management groups only during the initial onboarding of your Azure accounts. You can disable this option after onboarding is complete.
 
-. Enable Prisma Cloud to ingest Azure Key Vault resources.
+. Enable Prisma Cloud to ingest Azure Key Vault resources.  This step is required only if you are using the Azure Tenant or Subscription workflow.
 +
 The following Azure resources need to have the *Get* and *List* permissions enabled in the Key Management Operations on Azure Portal for Prisma Cloud to ingest them:
 +
@@ -76,7 +76,7 @@ Select menu:All{sp}services[Key vaults > (key vault name) > Access policies > + 
 +
 image::add-access-policy-azure.png[scale=10]
 
-. Enable Prisma Cloud to obtain network traffic data from Network Security Group (NSG) https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal[flow logs]. NSG flow logs a feature of Network Watcher, allows you to view ingress and egress IP traffic information through a NSG.
+. Enable Prisma Cloud to obtain network traffic data from Network Security Group (NSG) https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal[flow logs]. NSG flow logs a feature of Network Watcher, allows you to view ingress and egress IP traffic information through a NSG. This step is required only if you are using the Azure Tenant or Subscription workflow, or if you would optionally like to ingest flow logs.
 +
 ** Create one or more network security groups if you have none.
 
