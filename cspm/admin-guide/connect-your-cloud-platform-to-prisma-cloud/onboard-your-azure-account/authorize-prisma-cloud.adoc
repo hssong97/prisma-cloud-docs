@@ -142,18 +142,21 @@ AssignableScopes": [
 . Log in to the Azure portal from the same local system where the JSON file was saved and complete the following steps:
 .. Open a PowerShell window or a DOS Command Prompt Window.
 .. Go to the directory where you stored the JSON file.
-.. Enter the following Azure CLI command (replacing the JSON filename to match the name of your custom role JSON file). 
-... Commercial 
+.. Enter the following Azure CLI command (replacing the JSON filename to match the name of your custom role JSON file): 
+* Commercial
++ 
 [userinput]
 ----
 az role definition create --role-definition "azure_prisma_cloud_lp_read_only.json"
 ----
-... Government 
+* Government 
++
 [userinput]
 ----
 az role definition create --role-definition "azure_prisma_cloud_read_only_role_gov.json"
 ----
-... China 
+* China 
++
 [userinput]
 ----
 az role definition create --role-definition "azure_prisma_cloud_read_only_role_china.json"
@@ -161,17 +164,21 @@ az role definition create --role-definition "azure_prisma_cloud_read_only_role_c
 +
 The command generates the sample output below:
 
-[systemoutput]
+[screen]
 ----
-{"assignableScopes": [    "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  ],  "description": "Allows Reading Flow Logs Settings",  "id": "/subscriptions/16dfdbcc-e407-4fbe-9096-e7a97ee23fb5/providers/Microsoft.Authorization/roleDefinitions/088c8f48-201c-4f8d-893f-7716a8d58fa1",  "name": "088c8f48-201c-4f8d-893f-7716a8d58fa1",  "permissions": [{      "actions": [        "<a list of all actions>"],      "dataActions": [],      "notActions": [],      "notDataActions": []    }],  "roleName": "Flow Log Settings Reader",  "roleType": "CustomRole",  "type": "Microsoft.Authorization/roleDefinitions"]
+{"assignableScopes": [    "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  ], 
+ "description": "Allows Reading Flow Logs Settings", 
+ "id": "/subscriptions/16dfdbcc-e407-4fbe-9096-e7a97ee23fb5/providers/Microsoft.Authorization/roleDefinitions/088c8f48-201c-4f8d-893f-7716a8d58fa1",  "name": "088c8f48-201c-4f8d-893f-7716a8d58fa1",  
+ "permissions": [{      "actions": [        "<a list of all actions>"],      "dataActions": [],      "notActions": [],      "notDataActions": []    }],  "roleName": "Flow Log Settings Reader",  "roleType": "CustomRole",  "type": "Microsoft.Authorization/roleDefinitions"]
 ----
 Custom role creation is now complete. 
 
 Complete the following steps to *assign the custom role to an app registration*, add role assignments and configure it to access the flow logs:
+
 . Log in to the Microsoft Azure Portal.
 . Follow the navigation path for your selected workflow:
-.. Tenant scope:  Navigate to *All Services > Management Groups*. Click on *Tenant Root Group*.
-.. Subscription scope:  Navigate to *All services > Subscriptions*
+* Tenant scope:  Navigate to *All Services > Management Groups*. Click on *Tenant Root Group*.
+* Subscription scope:  Navigate to *All services > Subscriptions*
 . Select *Access control (IAM) > Add role assignment*.
 . Verify that you can see the newly created custom role in the *Roles* drop-down.
 . Assign the custom role to the Prisma Cloud app registration. Enable the permission to query flow log status and save your changes.
@@ -182,30 +189,33 @@ Complete the following steps to *assign the custom role to an app registration*,
 If your organization restricts the use of Terraform templates, you also have the option to manually onboard your Azure Active Directory (AD), Government or Azure China account resources to Prisma Cloud by creating an app registration (service principal) on Azure. Here is a preview of the required steps based on your chosen onboarding flow:
 
 *Azure Tenant*
-. Create a custom role at the tenant level
-. Assign IAM roles at the tenant root level 
+
+. Create a custom role at the tenant level.
+. Assign IAM roles at the tenant root level. 
 . Assign GraphAPI permissions at the tenant level.
 . Grant admin consent for Azure AD Graph APIs.
 
 *Azure Subscription*
-. Create a custom role at the Subscription level
-. Assign IAM roles at the subscription level
+
+. Create a custom role at the Subscription level.
+. Assign IAM roles at the subscription level.
 
 *Azure Active Directory*
+
 . Assign GraphAPI permissions at the tenant level.
 . Grant admin consent for Azure AD Graph APIs.
 
 
-*Prerequisites*
+==== Prerequisites
 
 * A Prisma Cloud tenant with permissions to onboard a cloud account.
 * Access the https://portal.azure.com[Azure portal] with permissions to register an application and create and assign roles.
 
-*Procedure*
+==== Steps
 
-. Elevate access for a https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin#elevate-access-for-a-global-administrator[Global Administrator]. 
+1. Elevate access for a https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin#elevate-access-for-a-global-administrator[Global Administrator] on the Azure portal. This allows Prisma Cloud to access Azure subscriptions or management groups. This is required for ingesting resources associated with subscriptions and management groups only during the initial onboarding of your Azure accounts. You have the option to disable this after onboarding is complete. 
 
-. Follow the steps below to *Register a new application*.
+2. Follow the steps below to *Register a new application*.
 +
 .. Log in to https://portal.azure.com[Azure portal].
 
@@ -225,7 +235,7 @@ The authentication response of the app will be returned to this URI.
 
 .. Copy *Application (client) ID* and *Directory (tenant) ID* to a secure location on your computer. You will later enter these details into the Prisma Cloud UI.
 
-. Create the client secret.
+3. Create the client secret.
 +
 The client secret is a secret string that the application uses to prove its identity when requesting a token.
 +
@@ -240,7 +250,7 @@ The client secret is a secret string that the application uses to prove its iden
 Make sure that you copy *Value* and not *Secret ID*.
 ====
 
-. Get the Object ID.
+4. Get the Object ID.
 +
 .. Select menu:Azure{sp}Active{sp}Directory[Enterprise applications], and search for the app you previously created in the search box.
 
@@ -251,62 +261,25 @@ Make sure that you copy *Value* and not *Secret ID*.
 Make sure that you get the *Object ID* for the Prisma Cloud application from menu:Enterprise{sp}Applications[All applications] on the Azure portal—not from *App Registrations*.
 ====
 
-. Add roles to the root group.
+5. Add roles to the root group.
 +
 The following roles should be added to the root group:
 +
-** *Reader*
+** Reader
 
-** *Reader and Data Access*
+** Reader and Data Access
 
-** *Network Contributor*
+** Network Contributor
 
-** *Storage Account Contributor*
+** Storage Account Contributor
 
-. Verify that all the roles have been added.
+6. Verify that all the roles have been added.
 +
 .. Select *Role assignments*.
 
 .. Enter the name of your app in the search form and confirm that the roles that have been added.
 
-. Add the Microsoft Graph APIs.
-+
-.. Navigate to the app you previously registered.
-+
-Select menu:Azure{sp}Active{sp}Directory[App registrations], and select your app.
-
-.. Navigate to Microsoft Graph.
-+
-Select menu:API{sp}permissions[+ Add a permission > Microsoft Graph > Application permissions].
-
-.. Add the permissions.
-+
-Enter the permission name in *Select permissions*, and select the name from *Permission*.
-+
-image::azure-active-directory-request-api-permissions.png[scale=30]
-+
-Add the following permissions:
-+
-* screen:[User.Read.All]
-* screen:[Policy.Read.All]
-* screen:[Group.Read.All]
-* screen:[GroupMember.Read.All]
-* screen:[Reports.Read.All]
-* screen:[Directory.Read.All]
-* screen:[Domain.Read.All]
-* screen:[Application.Read.All]
-+
-[NOTE]
-====
-If you have enabled additional functions like Agentless Scanning or Workload Protection additional permissions will be required. Review the *Roles and Permissions* list for the required permissions.
-====
-
-. Assign the created roles.
-
-[NOTE]
-====
-Skip this step if your following the Azure Active Directory onboarding flow.
-====
+7. Assign the created roles. Skip this step if your following the Azure Active Directory onboarding flow.
 .. Add the following roles to the root group for Azure Tenant onboarding and to the subscription for Subscription onboarding:
 ... Reader
 ... Reader and Data Access
@@ -314,37 +287,20 @@ Skip this step if your following the Azure Active Directory onboarding flow.
 ... Storage Account Contributor
 ... Create Custom Role for Agentless Scanning, Workload Protection and Serverless Scanning. 
 .. Complete the steps below to add role assignments.
-.... For Tenant workflow: 
-.... On the Azure Portal, select *Management groups > Tenant Root Group > Access control (IAM) > Role assignments > + Add > Add role assignment*.
-.... For Subscription workflow, select *All Services > Subscriptions > Access Control (IAM) > Role assignments > + Add > Add role assignment*.
-.... Enter the name of the role, for example, Reader, in the search box. Click on the role name in the results, and select *Next*.
-.... Assign members to the role, navigate to *Select members > Assign access*. Under *Assign Access to*, select *Assign the role to a User, group, or service principal*. 
-.... Click *+ Select members* and then enter the name of the app you previously created, in the search box to assign the role to your app. 
-.... Click *Select* and then *Next*.
-.... Select *Review + Assign* to complete adding the role assignment.
+... For Tenant workflow: Select *Management groups > Tenant Root Group > Access control (IAM) > Role assignments > + Add > Add role assignment*.
+... For Subscription workflow: Select *All Services > Subscriptions > Access Control (IAM) > Role assignments > + Add > Add role assignment*.
+... Enter the name of the role, for example, Reader, in the search box. Click on the role name in the results, and select *Next*.
+... Assign members to the role, navigate to *Select members > Assign access*. Under *Assign Access to*, select *Assign the role to a User, group, or service principal*. 
+... Click *+ Select members* and then enter the name of the app you previously created, in the search box to assign the role to your app. 
+... Click *Select* and then *Next*.
+... Select *Review + Assign* to complete adding the role assignment.
+... Confirm that all the newly created roles were added.
 
-. Confirm that all the newly created roles were added.
-+
-.. Select *Role assignments*.
+8. Add the Microsoft Graph APIs.
+.. Navigate to the app you previously registered. Select menu:Azure{sp}Active{sp}Directory[App registrations], and select your app.
+.. Navigate to Microsoft Graph. Select menu:API{sp}permissions[+ Add a permission > Microsoft Graph > Application permissions].
+.. Add the permissions. Enter the permission name in *Select permissions*, and select the name from *Permission*. Add the following permissions:
 
-.. Enter the name of your app in the search form and view the roles that have been added.
-
-. Add the Microsoft Graph APIs.
-+
-.. Navigate to the app you previously registered.
-+
-Select menu:Azure{sp}Active{sp}Directory[App registrations], and select your app.
-
-.. Navigate to Microsoft Graph.
-+
-Select menu:API{sp}permissions[+ Add a permission > Microsoft Graph > Application permissions].
-
-.. Add the permissions.
-+
-Enter the permission name in *Select permissions*, and select the name from *Permission*.
-+
-Add the following permissions:
-+
 * screen:[User.Read.All]
 * screen:[Policy.Read.All]
 * screen:[Group.Read.All]
@@ -353,14 +309,13 @@ Add the following permissions:
 * screen:[Directory.Read.All]
 * screen:[Domain.Read.All]
 * screen:[Application.Read.All]
-
-. Grant admin consent for Default Directory.
 +
+If you have enabled additional functions like Agentless Scanning or Workload Protection additional permissions will be required. Review the *Roles and Permissions* list for the required permissions. 
+
+9. Grant admin consent for Default Directory.
 .. Select menu:Grant{sp}admin{sp}consent{sp}for{sp}Default{sp}Directory[Yes].
-
 .. Verify that the permissions are granted.
-+
-Confirm that you can see green check marks under the *Status* column.
+.. Confirm that you can see green check marks under the *Status* column.
 
 
 

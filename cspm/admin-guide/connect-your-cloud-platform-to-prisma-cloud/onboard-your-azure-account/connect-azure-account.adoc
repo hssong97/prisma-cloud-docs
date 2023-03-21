@@ -60,7 +60,11 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 
 To successfully onboard and monitor the resources within your Azure subscription, ensure that you have completed the following prerequisites:
 
-. Get your Azure Subscription ID from the Azure portal. (S to provide updated steps)
+. Get your Azure Subscription ID from the https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin/connect-your-cloud-platform-to-prisma-cloud/onboard-your-azure-account/azure-onboarding-checklist[Azure portal]. 
+.. Make sure that you have Account Owner or Contributor privileges so that you can add your Prisma Cloud created application on your Azure Active Directory. 
+.. To onboard your Azure subscription on Prisma Cloud, set up an Active Directory application object (Application Client ID) and an Enterprise Application Object ID that together enable API access. 
+.. The process of setting up Prisma Cloud on Azure Active Directory provides you with the keys and IDs required to establish an identity for sign-in and access to resources in your Azure subscription. 
+.. The Enterprise Application Object ID defines the permissions and scope assumed by Prisma Cloud.			 
 
 . Elevate access for a https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin#elevate-access-for-a-global-administrator[Global Administrator] using Azure portal to enable Prisma Cloud access to Azure subscriptions or management groups. This is needed for ingesting resources associated with subscriptions and management groups only during the initial onboarding of your Azure accounts. You can disable this option after onboarding is complete.
 
