@@ -164,6 +164,7 @@ az role definition create --role-definition "azure_prisma_cloud_read_only_role_c
 +
 The command generates the sample output below:
 
+[%collapsible]
 [, json]
 ----
 {"assignableScopes": [    "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  ], 
