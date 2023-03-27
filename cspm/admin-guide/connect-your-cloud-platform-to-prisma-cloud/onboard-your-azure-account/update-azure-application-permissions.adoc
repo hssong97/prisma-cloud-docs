@@ -1,10 +1,10 @@
 == Update Azure Application Permissions
 
-Even after you have completed onboarding, you have the option to add or remove Prisma Cloud Security Capabilities. Learn how you can add additional capabilities and the required associated permissions in your Azure subscriptions or tenants post onboarding. To verify if you have missing permissions authenticate into Prisma Cloud and select menu:Settings[Cloud Accounts], and view the *Status* column.
+Even after you have completed onboarding, you have the option to add or remove Prisma Cloud Security Capabilities. Learn how you can add additional capabilities and the required associated permissions in your Azure subscriptions or tenants after onboarding. To verify if you have missing permissions authenticate into Prisma Cloud and select menu:Settings[Cloud Accounts], and view the *Status* column.
 
 === Update Azure Custom Role Permissions
 
-When adding new Security Capabilities, you will first need to update the permissions granted to the existing custom role created during the onboarding process. This workflow is only available if you used the Azure Tenant or Subscription onboarding workflow. 
+When adding new Security Capabilities, you first need to update the permissions granted to the existing custom role created during the onboarding process. This workflow is only available for Azure Tenant and Subscription onboarding. 
 
 ==== Using Terraform Script (Recommended)
 
@@ -15,11 +15,11 @@ Follow the steps below to update your custom role permissions and add or modify 
  Azure China workflows does not support the use of Terraform templates.
 ====
 
-. Authenticate with Azure CLI. 
+. Authenticate using Azure CLI. 
 
-. Navigate to the directory you created during the onboarding process to store the Terraform file. Sample directory names include, [userinput] onboard-tenant-<tenant-name> or [userinput] onboard–subscription-<subscription-name>. Ensure that the directory contains the [userinput] terraform.tfstate file created during the *terraform apply step*. 
+. Navigate to the directory you created during the onboarding process to store the Terraform file. Sample directory names include, userinput:[onboard-tenant-<tenant-name>] or userinput:[onboard–subscription-<subscription-name>]. Ensure that the directory contains the userinput:[terraform.tfstate file] created during the *terraform apply step*. 
 
-. Select the required features under Security Capabilities and Permissions section in the Get Started dialog.
+. Select the required features under *Security Capabilities and Permissions* section in the *Get Started* dialog.
 
 . Download the Terraform again by clicking on *Edit Cloud Account > Configure Account > Download Terraform Script* button. The newly downloaded Terraform file contains the updated permissions.
 
@@ -30,7 +30,7 @@ Follow the steps below to update your custom role permissions and add or modify 
 
 [NOTE]
 ====
-If the terraform.tfstate file is not present in the directory, when the Terraform script is executed, a new app is registered and a new custom roles is created.
+If the userinput:[terraform.tfstate] file is not present in the directory, when the Terraform script is executed, a new app is registered and a new custom roles is created.
 ====
 
 ==== Manually update Custom Roles 
@@ -40,8 +40,8 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 
 . Authenticate into https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin/connect-your-cloud-platform-to-prisma-cloud/onboard-your-azure-account/update-azure-application-permissions[Azure portal]. 
 
-. For Tenant Workflow: Navigate to *All Services > Management Groups*. Click on Tenant Root Group 
-  For Subscription Workflow: Navigate to *All Services > Subscriptions*.
+. For Tenant onboarding: Navigate to *All Services > Management Groups*. Click on Tenant Root Group 
+  For Subscription onboarding: Navigate to *All Services > Subscriptions*.
 	
 . Select Access Control (IAM) > Roles.
 	

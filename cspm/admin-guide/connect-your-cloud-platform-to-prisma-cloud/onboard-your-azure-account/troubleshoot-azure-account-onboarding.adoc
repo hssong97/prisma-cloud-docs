@@ -14,7 +14,7 @@ Use this troubleshooting guide to find tips to identify, detect, and remediate a
 |Error below when running the Azure onboarding Terraform template on your local system or Azure Cloud shell.
 [userinput]
 ----
-Could not retrieve the list of available versions for provider hashicorp/random: .... must use terraform init -upgrade to allow selection of new version
+Could not retrieve the list of available versions for provider hashicorp/random: ... must use terraform init -upgrade to allow selection of new version
 ----
 |Your local system or Azure Cloud shell still has the old versions of Terraform libraries installed. To update to the new terraform library versions, execute *terraform init -upgrade command* in the directory where you want to execute terraform. Next, execute *terraform apply* to run Terraform.
 
@@ -53,9 +53,12 @@ Prisma Cloud application is not assigned following role(s): User.Read.All, Appli
 |Cloud account status shows error for multiple components.
 |Verify that you have created the required roles, added the role assignments and selected *Grant Admin Consent* for API permissions
 If the issue still persists after you have eliminated the items above as an issue, confirm that you have given Prisma Cloud the appropriate *Enterprise Application Object ID*:
-. Navigate to Enterprise *Applications > All Applications*.
-. Search for your application in the Search box and copy the *Object ID*. 
-. Copy and paste it in *Enterprise Application Object ID* in the Prisma Cloud Azure Onboarding workflow and ensure that all the statuses are green in the *Review Status* dialog.
+
+.. Navigate to Enterprise *Applications > All Applications*.
+
+.. Search for your application in the Search box and copy the *Object ID*. 
+
+.. Copy and paste it in *Enterprise Application Object ID* in the Prisma Cloud Azure Onboarding workflow and ensure that all the statuses are green in the *Review Status* dialog.
 
 |Following permissions are shown as missing under Agent Based Workload Protection component under the account onboarding status tab:
 [userinput]
@@ -80,9 +83,12 @@ Authentication failed. Azure Subscription not found.
 
 |*Ingest and Monitor Network Security Group Flow Logs* checkbox is checked during onboarding and you are still facing issues with Flow Logs Ingestion.
 |*Check whether Azure flow logs are being generated* and written to the storage account:
-1. Log in to the Azure portal.
-2. Select Storage Accounts and select the storage account that you want to check.
-3. Select Blobs > Blob Service and navigate through the folders to find the *.json files.
+
+.. Log in to the Azure portal.
+
+.. Select Storage Accounts and select the storage account that you want to check.
+
+.. Select Blobs > Blob Service and navigate through the folders to find the .json files.
 These are the flow logs that Prisma Cloud ingests.
 
 *Check that you have created storage accounts in the same regions as the Network Security Groups*.
