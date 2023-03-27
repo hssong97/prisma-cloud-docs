@@ -17,7 +17,7 @@ Follow the steps below to update your custom role permissions and add or modify 
 
 . Authenticate using Azure CLI. 
 
-. Navigate to the directory you created during the onboarding process to store the Terraform file. Sample directory names include, userinput:[onboard-tenant-<tenant-name>] or userinput:[onboard–subscription-<subscription-name>]. Ensure that the directory contains the userinput:[terraform.tfstate file] created during the *terraform apply step*. 
+. Navigate to the directory you created during the onboarding process to store the Terraform file. Sample directory names include, screen:[onboard-tenant-<tenant-name>] or screen:[onboard–subscription-<subscription-name>]. Ensure that the directory contains the screen:[terraform.tfstate file] created during the *terraform apply step*. 
 
 . Select the required features under *Security Capabilities and Permissions* section in the *Get Started* dialog.
 
@@ -30,7 +30,7 @@ Follow the steps below to update your custom role permissions and add or modify 
 
 [NOTE]
 ====
-If the userinput:[terraform.tfstate] file is not present in the directory, when the Terraform script is executed, a new app is registered and a new custom roles is created.
+If the screen:[terraform.tfstate] file is not present in the directory, when the Terraform script is executed, a new app is registered and a new custom roles is created.
 ====
 
 ==== Manually update Custom Roles 

@@ -76,7 +76,7 @@ Authentication failed. Azure Subscription not found.
 ----
 |Login to the Azure Portal and check whether the Azure subscription is deleted or disabled. Prisma Cloud cannot monitor the subscription if it is deleted or disabled.
 
-|A child account of an already onboarded Tenant on Prisma Cloud is modified on the Azure Portal, but the change is not reflected in Prisma Cloud under *Management Groups and Subscriptions* of the already onboarded Tenant.
+|A child account of an already added Tenant on Prisma Cloud is modified on the Azure Portal, but the change is not reflected in Prisma Cloud under *Management Groups and Subscriptions* of the already added Tenant.
 |It can take up to six hours for new child account information to be added, updated, or deleted in Prisma Cloud.
 
 2+|Azure Flow Logs configuration related issues
@@ -93,7 +93,7 @@ These are the flow logs that Prisma Cloud ingests.
 
 *Check that you have created storage accounts in the same regions as the Network Security Groups*.
 
-Network security group (NSG) flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through an NSG. Azure flow logs must be stored within a storage account in the same region as the NSG.
+Network Security Group (NSG) flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through an NSG. Azure flow logs must be stored within a storage account in the same region as the NSG.
 
 .. Log in to Prisma Cloud.
 
