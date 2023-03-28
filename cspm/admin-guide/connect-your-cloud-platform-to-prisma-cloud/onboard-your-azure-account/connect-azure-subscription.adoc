@@ -1,6 +1,6 @@
-== Connect your Azure Tenant 
+== Connect your Azure Subscription 
 
-Learn how to <<commercial>>, <<government>>, or Azure China cloud resources on Prisma Cloud. Onboarding an *Azure Tenant* connects all your Azure resources to Prisma Cloud including Accounts with Management Groups, Subscriptions and Active Directory.
+Learn how to <<commercial>>, <<government>>, or Azure China cloud resources on Prisma Cloud. Onboarding an *Azure Subscription* connects the resources within your Azure subscription to Prisma Cloud.
 
 Connecting Prisma™ Cloud to your Azure cloud account enables you to analyze and monitor traffic logs, and detect potential malicious network activity or compliance issues. During the built-in onboarding process you have the option of using one of the following three methods to create the required Azure resources to authorize Prisma Cloud to access Azure APIs:
 
@@ -18,7 +18,7 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 
 
 [#commercial]
-=== Add Azure Commercial Tenant
+=== Add Azure Commercial Subscription
 
 
 ==== Get Started
@@ -26,7 +26,7 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 . https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin/get-started-with-prisma-cloud/access-prisma-cloud.html#id3d308e0b-921e-4cac-b8fd-f5a48521aa03[Access Prisma Cloud] and select menu:Settings[Cloud Accounts > Add Cloud Account].
 
 . Choose *Azure* as the *Cloud to Secure*.
-. Select *Tenant* under *Scope*.
+. Select *Subscription* under *Scope*.
 . Select *Commercial* as the *Deployment Type*.
 . Enable the following functionality to get the most our your Prisma Cloud experience:
 
@@ -50,11 +50,11 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 
 ==== Review Status
 
-. On the *Review Status* page, ensure that all the *Security Capabilities* you have selected display a green Enabled button. If *Checks Failed* appears next to a selected function. Click the drop-down next to the failed check and add the missing permissions listed. Review Roles and Permissions for a full list of permissions. 
+. On the *Review Status* page, ensure that all the *Security Capabilities* you have selected display a green Enabled button. If *Checks Failed* appears next to a selected function. Click the drop-down next to the failed check and add the missing permissions listed. Review Roles and Permissions(?add xref when ready) for a full list of permissions. 
 . Click *Save and Close* to complete onboarding or *Save and Onboard Another Account*.
 
 [#government]
-=== Add Azure Government Tenant
+=== Add Azure Government Subscription
 
 To add and Azure Government account follow the steps outlined under Azure Commercial above, with the following exceptions:
 

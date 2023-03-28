@@ -17,7 +17,7 @@ Follow the steps below to update your custom role permissions and add or modify 
 
 . Authenticate using Azure CLI. 
 
-. Navigate to the directory you created during the onboarding process to store the Terraform file. Sample directory names include, screen:[onboard-tenant-<tenant-name>] or screen:[onboard–subscription-<subscription-name>]. Ensure that the directory contains the screen:[terraform.tfstate file] created during the *terraform apply step*. 
+. Navigate to the directory you created during the onboarding process to store the Terraform file. Sample directory names include _onboard-tenant-<tenant-name>_ or _onboard–subscription-<subscription-name>_. Ensure that the directory contains the _terraform.tfstate file_ created during the *terraform apply step*. 
 
 . Select the required features under *Security Capabilities and Permissions* section in the *Get Started* dialog.
 
@@ -30,7 +30,7 @@ Follow the steps below to update your custom role permissions and add or modify 
 
 [NOTE]
 ====
-If the screen:[terraform.tfstate] file is not present in the directory, when the Terraform script is executed, a new app is registered and a new custom roles is created.
+If the _terraform.tfstate_ file is not present in the directory, when the Terraform script is executed, a new app is registered and a new custom roles is created.
 ====
 
 ==== Manually update Custom Roles 
@@ -53,7 +53,7 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 
 . Verify your *Role name and Permissions*. Click on *Update*. Wait for few minutes for the custom role to update.
 
-==== Add the Microsoft Graph API Permissions
+=== Add the Microsoft Graph API Permissions
 
 1. Navigate to the app you previously registered. Select menu:Azure{sp}Active{sp}Directory[App registrations], and select your app.
 . Navigate to Microsoft Graph. Select menu:API{sp}permissions[+ Add a permission > Microsoft Graph > Application permissions].

@@ -7,9 +7,9 @@ Use this troubleshooting guide to find tips to identify, detect, and remediate a
 [cols="50%a,50%a"]
 |===
 
-|Issue |Troubleshooting Tip
+|*Issue* |*Troubleshooting Tip*
 
-2+|Azure Onboarding Terraform Issues
+2+|*Azure Onboarding Terraform Issues*
 
 |Error below when running the Azure onboarding Terraform template on your local system or Azure Cloud shell.
 [userinput]
@@ -41,7 +41,7 @@ Error: Adding password for application with object ID "89d14baf-ab16-4a66-a2c8-1
 ----
 |Ensure that the you have been assigned the https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin#elevate-access-for-a-global-administrator[Global Administrator] role on Azure Active Directory (AD).
 
-2+|Azure Cloud Account Status related issues
+2+|*Azure Cloud Account Status related issues*
  
 |Cloud account status shows the following error / warning for under Config on the Cloud Account Status page.
 [userinput]
@@ -79,7 +79,7 @@ Authentication failed. Azure Subscription not found.
 |A child account of an already added Tenant on Prisma Cloud is modified on the Azure Portal, but the change is not reflected in Prisma Cloud under *Management Groups and Subscriptions* of the already added Tenant.
 |It can take up to six hours for new child account information to be added, updated, or deleted in Prisma Cloud.
 
-2+|Azure Flow Logs configuration related issues
+2+|*Azure Flow Logs configuration related issues*
 
 |*Ingest and Monitor Network Security Group Flow Logs* checkbox is checked during onboarding and you are still facing issues with Flow Logs Ingestion.
 |*Check whether Azure flow logs are being generated* and written to the storage account:
@@ -132,25 +132,5 @@ network from vpc.flow_record where source.publicnetwork IN ('Internet IPs', 'Sus
 ----
 +
 This query allows you to list all network traffic from the Internet or from Suspicious IP addresses with over 0 bytes of data transferred to a network interface on any resource on any cloud environment.
-
-|You see the error *Subscription does not have Reader role(s) assigned*
-|Verify that you have entered the correct Service Principal ID. On the Azure portal, the Object ID for the Prisma Cloud application is what you must provide as the Service Principal ID on Prisma Cloud. Make sure to get the Object ID for the Prisma Cloud application from menu:Enterprise{sp}Applications[All applications] on the Azure portal.
-
-image::azure-service-principal-id.png[scale=20]
-
-|Issues with viewing Audit logs
-|.. Log in to Azure portal.
-
-.. Ensure that the *Reader* or *Reader and Data Access Role* is assigned to the registered app used during onboarding.
-
-.. Log in to Prisma Cloud.
-
-.. Select Investigate and enter the following RQL query:
-
-----
-config from cloud.resource where api.name = 'azure-active-directory-user'
-----
-
-If no results are returned, this maybe because the Graph API permissions are not assigned to the registered app. Ensure that the permissions for *Reader* or *Reader and Data Access Role* are enabled on Azure Active Directory.
 
 |===
