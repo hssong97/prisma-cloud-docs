@@ -1,4 +1,4 @@
-== Connect your Azure Active Directory Tenant
+== Connect an Azure Active Directory Tenant
 
 Learn how to <<commercial>>, <<government>>, or Azure China cloud resources on Prisma Cloud. Onboarding an *Azure Active Directory Tenant* connects the resources within your Azure subscription to Prisma Cloud.
 
@@ -35,9 +35,7 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 
 . On the *Configure Account* page provide your *Account Details* including *Directory Tenant ID* and choose an *Account Name*.
 . If you're using the recommended Terraform template to provide the required account details, click *Download Terraform Script* and enter the form details from the script output. Provide details for *Application (Client) ID*, *Application Client Secret*, *Enterprise Application Object ID* from the script output.
-. Enable Network Security Group (NSG) flow log ingestion if you would like to view information about ingress and egress IP traffic through an NSG. 
-. Onboarding all Tenant member accounts is recommended, but you have the option of disabling this and including or excluding a subset of your member accounts.
-. You can also choose to onboard a Default Account Group, or choose from one of the Account Groups in the drop-down. 
+. You can also select a Default Account Group, or choose from one of the Account Groups in the drop-down. 
 . Click Next.
 
 ==== Review Status
@@ -48,7 +46,7 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 [#government]
 === Add Azure Government Active Directory Tenant
 
-To add and Azure Government account follow the steps outlined under Azure Commercial above, with the following exceptions:
+To add an Azure Government account follow the steps outlined under Azure Commercial above, with the following exceptions:
 
 * During the Get Started step, select *Government* as the deployment type.
 

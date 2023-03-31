@@ -7,11 +7,15 @@ Learn how to add your Azure Tenant. Subscription or Active Directory tenant to P
 
 * xref:connect-azure-tenant.adoc[Connect your Azure Tenant]
 
+* xref:connect-azure-subscription.adoc[Connect your Azure Subscription]
+
+* xref:connect-azure-active-directory.adoc[Connect your Azure Active Directory Tenant]
+
 * xref:authorize-prisma-cloud.adoc[Authorize Prisma Cloud to access Azure APIs]
 
 * xref:update-azure-application-permissions.adoc[Update Azure Application Permissions]
 
-* xref:troubleshoot-azure-account-onboarding.adoc#id6b7e6e40-9ce7-43d8-b5b5-1dcc607d8e9b[Troubleshoot Azure Account Onboarding]
+* xref:troubleshoot-azure-account-onboarding.adoc[Troubleshoot Azure Account Onboarding] 
 
 * xref:microsoft-azure-apis-ingested-by-prisma-cloud.adoc#idc4e0a68d-4486-478b-9a1f-bbf8f6d8f905[Microsoft Azure APIs Ingested by Prisma Cloud] 
 

@@ -14,9 +14,9 @@ Learn how to add your Azure cloud resources to Prisma™ Cloud for threat detect
 |Select one of the <<choose-onboard-option>> below
 
 |Onboarding Complete
-|* xref:update-azure-application-permissions.adoc#idd4a9fb0b-59df-473b-8547-789be4c18ec5[Update Azure Application Permissions]
+|* xref:update-azure-application-permissions.adoc[Update Azure Application Permissions]
 
-* xref:troubleshoot-azure-account-onboarding.adoc#id6b7e6e40-9ce7-43d8-b5b5-1dcc607d8e9b[Troubleshoot Azure Account Onboarding]
+* xref:troubleshoot-azure-account-onboarding.adoc[Troubleshoot Azure Account Onboarding]
 
 * xref:microsoft-azure-apis-ingested-by-prisma-cloud.adoc#idc4e0a68d-4486-478b-9a1f-bbf8f6d8f905[Microsoft Azure APIs Ingested by Prisma Cloud] 
 
@@ -31,13 +31,13 @@ Use one of the following three options to onboard your Azure cloud account on Pr
 ** xref:connect-azure-tenant.adoc#commercial[Commercial]
 ** xref:connect-azure-tenant.adoc#government[Government] 
 ** China
-* Azure Subscription (connects a single Subscription)
-** Commercial 
-** Government 
+* Azure Subscription (Connects a single subscription)
+** xref:connect-azure-subscription.adoc#commercial[Commercial] 
+** xref:connect-azure-subscription.adoc#government[Government] 
 ** China
-* Azure Active Directory (connects an Active Directory)
-** Commercial 
-** Government
+* Azure Active Directory (Connects an Active Directory)
+** xref:connect-azure-active-directory.adoc#commercial[Commercial]  
+** xref:connect-azure-active-directory.adoc#government[Government]
 ** China
 
 
@@ -117,12 +117,12 @@ Replace userinput:[your storage account] with the name of your storage account i
 ** xref:connect-azure-tenant.adoc#government[Government] 
 ** China
 * Azure Subscription (Connects a single subscription)
-** Commercial 
-** Government 
+** xref:connect-azure-subscription.adoc#commercial[Commercial] 
+** xref:connect-azure-subscription.adoc#government[Government] 
 ** China
 * Azure Active Directory (Connects an Active Directory)
-** Commercial 
-** Government
+** xref:connect-azure-active-directory.adoc#commercial[Commercial]  
+** xref:connect-azure-active-directory.adoc#government[Government]
 ** China
 
 

@@ -59,7 +59,7 @@ Input these values in the associated UI fields as indicated:
 
 image::so-az-authorize-permissions.png[scale=30] 
 
-==== Terraform for Azure Subscriptions Workflow
+==== Terraform for Azure Subscription Workflow
 
 . Ensure your system has Terraform installed and is also authenticated to Azure via the CLI. 
 . Download the Terraform script using Prisma Cloud Azure Onboarding User Interface or Azure Template Generation API.
@@ -131,7 +131,7 @@ AssignableScopes": [
   ]
 ----
 +
-* Subscriptions Workflow: Edit the saved custom role JSON file in a text editor and update the value for AssignableScopes with the value below and save your changes:
+* Subscription Workflow: Edit the saved custom role JSON file in a text editor and update the value for AssignableScopes with the value below and save your changes:
 +
 [userinput]
 ----
@@ -185,7 +185,7 @@ Complete the following steps to *assign the custom role to an app registration*,
 . Assign the custom role to the Prisma Cloud app registration. Enable the permission to query flow log status and save your changes.
 
 [#manual]
-=== Manually Onboard Prisma Cloud
+=== Manually Authorize Prisma Cloud
 
 If your organization restricts the use of Terraform templates, you also have the option to manually onboard your Azure Active Directory (AD), Government or Azure China account resources to Prisma Cloud by creating an app registration (service principal) on Azure. Here is a preview of the required steps based on your chosen onboarding flow:
 
@@ -274,6 +274,10 @@ The following roles should be added to the root group:
 
 ** Storage Account Contributor
 
+** Key Vault Crypto Service Encryption Service for Agent-based Workload Protection
+
+** Create Custom Roles for Agentless Scanning, and Serverless Scanning
+
 6. Verify that all the roles have been added.
 +
 .. Select *Role assignments*.
@@ -281,12 +285,6 @@ The following roles should be added to the root group:
 .. Enter the name of your app in the search form and confirm that the roles that have been added.
 
 7. Assign the created roles. Skip this step if your following the Azure Active Directory onboarding flow.
-.. Add the following roles to the root group for Azure Tenant onboarding and to the subscription for Subscription onboarding:
-... Reader
-... Reader and Data Access
-... Network Contributor
-... Storage Account Contributor
-... Create Custom Role for Agentless Scanning, Workload Protection and Serverless Scanning. 
 .. Complete the steps below to add role assignments.
 ... For Tenant workflow: Select *Management groups > Tenant Root Group > Access control (IAM) > Role assignments > + Add > Add role assignment*.
 ... For Subscription workflow: Select *All Services > Subscriptions > Access Control (IAM) > Role assignments > + Add > Add role assignment*.
