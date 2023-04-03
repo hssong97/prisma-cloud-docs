@@ -10,14 +10,22 @@ Learn how to add your Azure cloud resources to Prisma™ Cloud for threat detect
 |*Deployment Stage*
 |*Resources*
 
-|First-time onboarding
-|Select one of the <<choose-onboard-option>> below
+|Initial Onboarding
+|* <<prerequisites>>
+*  <<choose-onboard-option>> 
+* xref:connect-azure-tenant.adoc[Add Azure Tenant]
+* xref:connect-azure-subscription.adoc[Add Azure Subscription]
+* xref:connect-azure-active-directory.adoc[Add Azure Active Directory]
 
-|Onboarding Complete
+|After Onboarding
+|* xref:edit-onboarded-account.adoc[View and Edit a Connected Azure Account]
+* xref:edit-onboarded-account.adoc#ds[Configure Data Security]
+
+|Update an Added Account
 |* xref:update-azure-application-permissions.adoc[Update Azure Application Permissions]
 
-* xref:troubleshoot-azure-account-onboarding.adoc[Troubleshoot Azure Account Onboarding]
-
+|Additional Resources 
+|* xref:troubleshoot-azure-account-onboarding.adoc[Troubleshoot Azure Account Onboarding]
 * xref:microsoft-azure-apis-ingested-by-prisma-cloud.adoc#idc4e0a68d-4486-478b-9a1f-bbf8f6d8f905[Microsoft Azure APIs Ingested by Prisma Cloud] 
 
 |===
@@ -55,7 +63,7 @@ Using a manually created Custom Role you also have the option to enforce least a
 * xref:authorize-prisma-cloud.adoc#manual[Manually Authorizing Prisma Cloud]
 If your organization restricts the use of Terraform scripts, you can choose to manually create the required resources for Prisma Cloud to call the Azure APIs.
 
-
+[#prerequisites]
 === Prerequisites
 
 To successfully onboard and monitor the resources within your Azure subscription, ensure that you have completed the following prerequisites:

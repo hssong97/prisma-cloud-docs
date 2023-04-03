@@ -15,6 +15,8 @@ Learn how to add your Azure Tenant. Subscription or Active Directory tenant to P
 
 * xref:update-azure-application-permissions.adoc[Update Azure Application Permissions]
 
+* xref:edit-onboarded-account.adoc[View and Edit a Connected Azure Account]
+
 * xref:troubleshoot-azure-account-onboarding.adoc[Troubleshoot Azure Account Onboarding] 
 
 * xref:microsoft-azure-apis-ingested-by-prisma-cloud.adoc#idc4e0a68d-4486-478b-9a1f-bbf8f6d8f905[Microsoft Azure APIs Ingested by Prisma Cloud] 
