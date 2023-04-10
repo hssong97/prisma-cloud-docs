@@ -1,6 +1,6 @@
 == Connect an Azure Active Directory Tenant
 
-Learn how to <<commercial>>, <<government>>, or Azure China cloud resources on Prisma Cloud. Onboarding an *Azure Active Directory Tenant* connects the resources within your Azure subscription to Prisma Cloud.
+Learn how to <<commercial>>, <<government>>, or <<china>> cloud resources on Prisma Cloud. Onboarding an *Azure Active Directory Tenant* connects the resources within your Azure subscription to Prisma Cloud.
 
 Connecting Prisma™ Cloud to your Azure cloud account enables you to analyze and monitor traffic logs, and detect potential malicious network activity or compliance issues. During the built-in onboarding process you have the option of using one of the following three methods to create the required Azure resources to authorize Prisma Cloud to access Azure APIs:
 
@@ -18,8 +18,11 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 
 
 [#commercial]
-=== Add Azure Commercial Active Directory Tenant
+=== Connect Azure Commercial Active Directory Tenant
 
+The graphic below provides a visual overview of the steps you will take to onboard your account.
+
+image::so-az-active-directory.gif[scale=50]
 
 ==== Get Started
 
@@ -44,11 +47,18 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 . Click *Save and Close* to complete onboarding or *Save and Onboard Another Account*.
 
 [#government]
-=== Add Azure Government Active Directory Tenant
+=== Connect Azure Government Active Directory Tenant
 
-To add an Azure Government account follow the steps outlined under Azure Commercial above, with the following exceptions:
+To add an Azure Government account follow the steps outlined under Azure Commercial above, with the following exception:
 
 * During the Get Started step, select *Government* as the deployment type.
+
+[#china]
+=== Connect Azure China Subscription
+
+Account onboarding on https://app.prismacloud.cn/[Prisma Cloud] is only available for cloud resources currently deployed on Azure China. Follow the steps outlined under Azure Subscription above to onboard an Azure China account with the following exception:
+
+* Azure China does not support the use of Terraform templates to onboard a cloud account. To get started with monitoring your Azure China Subscription, review the xref:authorize-prisma-cloud.adoc#manual[manual onboarding steps] and gather the required information from your Azure China account. 
 
 
 

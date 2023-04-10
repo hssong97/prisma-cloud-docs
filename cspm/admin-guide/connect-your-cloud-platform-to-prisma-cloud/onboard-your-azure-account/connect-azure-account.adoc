@@ -38,15 +38,15 @@ Use one of the following three options to onboard your Azure cloud account on Pr
 * *Azure Tenant* (Connects all your Azure resources, accounts with Management Groups, Subscriptions and Active Directory to Prisma Cloud) 
 ** xref:connect-azure-tenant.adoc#commercial[Commercial]
 ** xref:connect-azure-tenant.adoc#government[Government] 
-** China
+** xref:connect-azure-tenant.adoc#china[China]
 * Azure Subscription (Connects a single subscription)
 ** xref:connect-azure-subscription.adoc#commercial[Commercial] 
 ** xref:connect-azure-subscription.adoc#government[Government] 
-** China
+** xref:connect-azure-subscription.adoc#china[China]
 * Azure Active Directory (Connects an Active Directory)
 ** xref:connect-azure-active-directory.adoc#commercial[Commercial]  
 ** xref:connect-azure-active-directory.adoc#government[Government]
-** China
+** xref:connect-azure-active-directory.adoc#china[China]
 
 
 Using Azure's APIs, Prisma Cloud ingests and processes data from your cloud environment and initiates resource monitoring. During the built-in onboarding process you have the option of using one of the following three methods to create the required Azure resources to authorize Prisma Cloud to access Azure APIs:
@@ -123,14 +123,14 @@ Replace userinput:[your storage account] with the name of your storage account i
 * Azure Tenant (Connects all your Azure resources to Prisma Cloud including Accounts with Management Groups, Subscriptions and Active Directory) 
 ** xref:connect-azure-tenant.adoc#commercial[Commercial]
 ** xref:connect-azure-tenant.adoc#government[Government] 
-** China
+** xref:connect-azure-tenant.adoc#china[China]
 * Azure Subscription (Connects a single subscription)
 ** xref:connect-azure-subscription.adoc#commercial[Commercial] 
 ** xref:connect-azure-subscription.adoc#government[Government] 
-** China
+** xref:connect-azure-subscription.adoc#china[China]
 * Azure Active Directory (Connects an Active Directory)
 ** xref:connect-azure-active-directory.adoc#commercial[Commercial]  
 ** xref:connect-azure-active-directory.adoc#government[Government]
-** China
+** xref:connect-azure-active-directory.adoc#china[China]
 
 

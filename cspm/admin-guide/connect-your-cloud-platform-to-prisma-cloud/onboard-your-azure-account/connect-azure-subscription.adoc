@@ -1,6 +1,6 @@
 == Connect an Azure Subscription 
 
-Learn how to <<commercial>>, <<government>>, or Azure China cloud resources on Prisma Cloud. Onboarding an *Azure Subscription* connects the resources within your Azure subscription to Prisma Cloud.
+Learn how to <<commercial>>, <<government>>, or <<china>> on Prisma Cloud. Onboarding an *Azure Subscription* connects the resources within your Azure subscription to Prisma Cloud.
 
 Connecting Prisma™ Cloud to your Azure cloud account enables you to analyze and monitor traffic logs, and detect potential malicious network activity or compliance issues. During the built-in onboarding process you have the option of using one of the following three methods to create the required Azure resources to authorize Prisma Cloud to access Azure APIs:
 
@@ -18,8 +18,11 @@ If your organization restricts the use of Terraform scripts, you can choose to m
 
 
 [#commercial]
-=== Add Azure Commercial Subscription
+=== Connect Azure Commercial Subscription
 
+The graphic below provides a visual overview of the steps you will take to onboard your account.
+
+image::so-az-subscription.gif[scale=50]
 
 ==== Get Started
 
@@ -44,6 +47,12 @@ Enable the following *Advanced* security capabilities to get the most our your P
 
 . Click *Next* to proceed with the onboarding flow.
 
+NOTE: The following recommended capabilities are enabled by default:
+
+* *Misconfigurations* (Foundational) scans cloud resources and ingestion metadata for vulnerabilities.
+* *Identity Security* (Foundational) calculates net effective permission for identities and manages access.
+* *Threat Detection* (Advanced) identifies network and user threats is enabled by default. 
+
 ==== Configure Account
 
 . On the *Configure Account* page provide your *Account Details* including *Directory Tenant ID* and choose an *Account Name*.
@@ -59,12 +68,21 @@ Enable the following *Advanced* security capabilities to get the most our your P
 . Click *Save and Close* to complete onboarding or *Save and Onboard Another Account*.
 
 [#government]
-=== Add Azure Government Subscription
+=== Connect Azure Government Subscription
 
-To add an Azure Government account follow the steps outlined under Azure Commercial above, with the following exceptions:
+To connect an Azure Government account follow the steps outlined under Azure Commercial above, with the following exceptions:
 
 * While completing the Get Started step, select *Government* as the deployment type.
 * During the Configuration step, *Remediation of IaC templates* is not available for Azure Government accounts.
+
+[#china]
+=== Connect Azure China Subscription
+
+Account onboarding on https://app.prismacloud.cn/[Prisma Cloud] is only available for cloud resources currently deployed on Azure China. Follow the steps outlined under Azure Subscription above to onboard an Azure China account with the following exceptions:
+
+* Azure China does not support the use of Terraform templates to onboard a cloud account. To get started with monitoring your Azure China Subscription, review the xref:authorize-prisma-cloud.adoc#manual[manual onboarding steps] and gather the required information from your Azure China account. 
+* During the Configuration step, *Remediation of IaC templates* is not available for Azure China accounts.
+* Advanced security capabilities such as Agentless Workload Scanning, Serverless Function Scanning and Agent-based Workload Protection are not available on Azure China.  
 
 
 
