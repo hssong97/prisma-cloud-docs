@@ -274,9 +274,9 @@ The following roles should be added to the root group:
 
 ** Storage Account Contributor
 
-** Key Vault Crypto Service Encryption Service for Agent-based Workload Protection
+** Key Vault Crypto Service Encryption User for Agent-based Workload Protection
 
-** Create Custom Roles for Agentless Scanning, and Serverless Scanning
+** Create Custom Roles for Agentless Scanning, and Serverless Scanning (These functions are not supported for Azure China.)
 
 6. Verify that all the roles have been added.
 +
