@@ -184,6 +184,10 @@ Complete the following steps to *assign the custom role to an app registration*,
 . Verify that you can see the newly created custom role in the *Roles* drop-down.
 . Assign the custom role to the Prisma Cloud app registration. Enable the permission to query flow log status and save your changes.
 
+Tenant Custom Role Example
+image::so-az-authorize-custom-role-tenant.png[scale=40]
+
+
 [#manual]
 === Manually Authorize Prisma Cloud
 
@@ -255,6 +259,8 @@ Make sure that you copy *Value* and not *Secret ID*.
 +
 .. Select menu:Azure{sp}Active{sp}Directory[Enterprise applications], and search for the app you previously created in the search box.
 
+image::azure-enterprise-applications-object-id.png[scale=30]
+
 .. Copy *Object ID* to a secure location on your computer.
 +
 [NOTE]
@@ -283,6 +289,7 @@ The following roles should be added to the root group:
 .. Select *Role assignments*.
 
 .. Enter the name of your app in the search form and confirm that the roles that have been added.
+image::azure-account-view-roles.png[scale=30]
 
 7. Assign the created roles. Skip this step if your following the Azure Active Directory onboarding flow.
 .. Complete the steps below to add role assignments.

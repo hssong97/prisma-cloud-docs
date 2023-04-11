@@ -60,6 +60,8 @@ If the issue still persists after you have eliminated the items above as an issu
 
 .. Copy and paste it in *Enterprise Application Object ID* in the Prisma Cloud Azure Onboarding workflow and ensure that all the statuses are green in the *Review Status* dialog.
 
+image::so-az-troubleshooting-comp-error.png[scale=40]
+
 |Following permissions are shown as missing under Agent Based Workload Protection component under the account onboarding status tab:
 [userinput]
 ----
@@ -68,6 +70,8 @@ Prisma Cloud is not assigned the following data actions:
 "Microsoft.KeyVault/vaults/keys/wrapaction"
 ----
 |Verify that *Key Vault Crypto Service Encryption User* built in role is assigned at *Tenant/Subscription* scope to the Prisma Cloud app registration.
+
+image::so-az-troubleshooting-keyvault[scale=40]
 
 |Cloud account status displays red and includes the following error message:
 [userinput]

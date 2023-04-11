@@ -116,7 +116,10 @@ Replace userinput:[your storage account] with the name of your storage account i
 ** Verify that you can view the flow logs.
 
 === Required Roles and Permissions
-*Bring in roles info from docs. RLP-95776 to provide Gsheet of required permissions and mapping to roles and deployment types*
+
+To successfully connect your account to Prisma Cloud you will need to provide the required permissions for both Foundational and Advanced security capabilities. Reference the information below to make sure that you have assigned the appropriate permissions to Prisma Cloud.
+
+* https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/prisma/prisma-cloud/prerelease/azure-commercial-permissions-security-coverage.txt[Permissions for Foundational and Advanced Security Capabilities]
 
 === Next: Onboard your Azure Account 
 

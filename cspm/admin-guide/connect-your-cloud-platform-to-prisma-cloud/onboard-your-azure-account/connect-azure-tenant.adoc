@@ -40,11 +40,14 @@ image::so-az-tenant.gif[scale=50]
 * *Agent-Based Workload Protection* allows for automated deployment of Defenders to  to secure resources such as  https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin-compute/install/install_defender/auto_defend_host[VMs], containers and Kubernetes orchestrators. Registry scanning, Kubernetes audits and other features required by defenders are also enabled.
 . Click *Next* to proceed with the onboarding flow.
 
-NOTE: The following recommended capabilities are enabled by default:
+[NOTE] 
+====
+The following recommended capabilities are enabled by default:
 
 * *Misconfigurations* (Foundational) scans cloud resources and ingestion metadata for vulnerabilities.
 * *Identity Security* (Foundational) calculates net effective permission for identities and manages access.
 * *Threat Detection* (Advanced) identifies network and user threats is enabled by default. 
+====
 
 ==== Configure Account
 
@@ -58,7 +61,8 @@ NOTE: The following recommended capabilities are enabled by default:
 
 ==== Review Status
 
-. On the *Review Status* page, ensure that all the *Security Capabilities* you have selected display a green Enabled button. If *Checks Failed* appears next to a selected function. Click the drop-down next to the failed check and add the missing permissions listed. Review Roles and Permissions for a full list of permissions. 
+. On the *Review Status* page, ensure that all the *Security Capabilities* you have selected display a green Enabled button. If *Checks Failed* appears next to a selected function. Click the drop-down next to the failed check and add the missing permissions listed. 
+
 . Click *Save and Close* to complete onboarding or *Save and Onboard Another Account*.
 
 [#government]
