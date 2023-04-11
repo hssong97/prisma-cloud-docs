@@ -2,7 +2,7 @@
 
 After you have added your Azure cloud account resources, you may from time to time want to review or update existing cloud resources or modify assigned permissions. The graphic below outlines the required steps to view or edit security capabilities.
 
-image::so-az-active-view-edit.gif[scale=50]
+image::so-az-view-edit.gif[scale=50]
 
 Follow the steps below to view or edit your Azure cloud account resources: 
 

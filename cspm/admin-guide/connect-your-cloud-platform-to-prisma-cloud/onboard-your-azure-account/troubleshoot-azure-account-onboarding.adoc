@@ -71,7 +71,7 @@ Prisma Cloud is not assigned the following data actions:
 ----
 |Verify that *Key Vault Crypto Service Encryption User* built in role is assigned at *Tenant/Subscription* scope to the Prisma Cloud app registration.
 
-image::so-az-troubleshooting-keyvault[scale=40]
+image::so-az-troubleshooting-keyvault.png[scale=40]
 
 |Cloud account status displays red and includes the following error message:
 [userinput]
