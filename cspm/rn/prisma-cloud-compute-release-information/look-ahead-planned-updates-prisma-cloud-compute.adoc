@@ -102,7 +102,7 @@ Agentless scanning is not supported for containers running on Windows hosts.
 //CWP-39820 
 |*Support for CBL-Mariner on Hosts*
 +++<draft-comment>39820</draft-comment>+++
-|Added support for deploying Host Defenders on CBL Mariner 2.0 Linux-based OS for Azure.
+|Added support for CBL-Mariner 2.0 on x86 for vulnerability scanning, compliance scanning, and runtime protection. Prisma Cloud tested CBL-Mariner  on AKS running on HCI environment.
 
 2+|*New Features in Serverless*
 
